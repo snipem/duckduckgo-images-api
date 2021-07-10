@@ -1,30 +1,24 @@
 # DuckDuckGo Image Search API
 
 DuckDuckGo Image Search API is a python application for programmatically downloading DuckDuckGo Image Search Results. This is for educational purposes only !
+Forked from [https://github.com/deepanprabhu/duckduckgo-images-api](https://github.com/deepanprabhu/duckduckgo-images-api), I just updated it so it works with Python 3+
 
-## How it Works
-Tested with Python 2.7.
-This project has simple source code to extract image search results, check out api.py.
+## Installation
+```python
+pip install duckduckgo-images-api
+```
+## Usage
+```python
+from duckduckgo_images_api import search
+results = search("nike")
+```
+And `results` will have the following keys `ads, query, queryEncoded, response_type, results, vqd`.
 
-First request pulls a much needed token,
-From 2nd request, we pull search results for FREE !!
-We have some basic logic, to retry the search engine when no results are returned.
+To get the the image urls, run
+```python
+print([r["url"] for r in results["results"]])
+```
 
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-If you implement support for python 3. please share.
-
-## Credits
-Thanks to,
-
-1) https://github.com/thibauts/duckduckgo
-2) https://github.com/rachmadaniHaryono
-
-[Original Author - Deepan Prabhu Babu](https://github.com/deepanprabhu)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
