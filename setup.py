@@ -2,7 +2,7 @@
 import setuptools
 
 setuptools.setup(
-    name="duckduckgo_images_api",
+    name="duckduckgo-images-api",
     version="1.0.0",
     url="https://github.com/joeyism/duckduckgo-images-api",
     author="joeyism",
