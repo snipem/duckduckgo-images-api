@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-def search(keywords: str, max_results=None) -> Dict:
+def search(keywords: str, max_results=None, print_results=True) -> Dict:
     url = 'https://duckduckgo.com/'
     params = {
     	'q': keywords
@@ -65,7 +65,9 @@ def search(keywords: str, max_results=None) -> Dict:
                 continue
 
         logger.debug("Hitting Url Success : %s", requestUrl)
-        printJson(data["results"])
+
+        if print_results:
+            printJson(data["results"])
 
         if "next" not in data or (max_results is not None and len(data["results"]) >= max_results):
             logger.debug("No Next Page or max_results exceeded - Exiting")
